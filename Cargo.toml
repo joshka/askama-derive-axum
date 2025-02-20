@@ -1,0 +1,30 @@
+[package]
+name = "askama-derive-axum"
+description = "Derive macro for Askama templates with Axum integration. Replacement for future deprecation of askama_axum crate."
+authors = ["Joshka"]
+repository = "https://github.com/joshka/askama-derive-axum/"
+documentation = "https://docs.rs/askama-derive-axum"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = ["tracing"]
+tracing = ["dep:tracing"]
+
+[dependencies]
+askama = "0.12.1"
+askama_derive = "0.12.5"
+axum-core = "0.5"
+http = "1.2.0"
+proc-macro2 = "1.0.93"
+quote = "1.0.38"
+syn = "2.0.98"
+tracing = { version = "0.1.41", optional = true }
+
+[lib]
+proc-macro = true
+
+[dev-dependencies]
+http-body-util = "0.1.2"
+tokio = { version = "1.43.0", features = ["rt-multi-thread", "macros", "time"] }
