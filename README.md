@@ -16,32 +16,34 @@
 
 <!-- cargo-rdme start -->
 
-Derive macro for implementing `IntoResponse` for Askama templates.
+Derive macro for implementing [`IntoResponse`] for Askama templates.
 
-This crate provides a derive macro for implementing `IntoResponse` for Askama templates. This
+This crate provides a derive macro for implementing [`IntoResponse`] for Askama templates. This
 allows you to use Askama templates as responses in Axum applications. It is a replacement for
 the `askama_axum` crate, which will be no longer available in askama 0.13. See [askama#1128] and
 [askama#1119] for more information.
 
 [askama#1128]: https://github.com/rinja-rs/askama/issues/1128
 [askama#1119]: https://github.com/rinja-rs/askama/issues/1119
+[`IntoResponse`]: axum_core::response::IntoResponse
 
 ## Example
 
 ```rust
 use askama::Template;
 use askama_derive_axum::IntoResponse;
-use axum_core::response::IntoResponse;
 
 #[derive(Template, IntoResponse)]
-#[template(source = "Hello {{name}}", ext = "html")]
-struct TestTemplate {
-    name: String,
+#[template(path = "index.html")]
+struct IndexTemplate {
+    title: String,
+    body: String,
 }
 
-async fn index() -> TestTemplate {
-    TestTemplate {
-        name: "world!".to_string(),
+async fn index() -> IndexTemplate {
+    IndexTemplate {
+        title: "My Blog".to_string(),
+        body: "Hello, world!".to_string(),
     }
 }
 ```
