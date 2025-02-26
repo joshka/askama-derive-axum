@@ -71,6 +71,14 @@ pub fn into_response_derive(input: TokenStream) -> TokenStream {
 
 fn impl_into_response(ast: &DeriveInput) -> TokenStream {
     let name = &ast.ident;
+
+    let tracing = if cfg!(feature = "tracing") {
+        Some(quote! {
+            ::tracing::error!("Failed to render template: {e}");
+        })
+    } else {
+        None
+    };
     let gen = quote! {
         impl ::axum_core::response::IntoResponse for #name {
             fn into_response(self) -> ::axum_core::response::Response {
@@ -87,8 +95,7 @@ fn impl_into_response(ast: &DeriveInput) -> TokenStream {
                         (headers, body).into_response()
                     }
                     Err(e) => {
-                        #[cfg(feature = "tracing")]
-                        ::tracing::error!("Failed to render template: {e}");
+                        #tracing
                         StatusCode::INTERNAL_SERVER_ERROR.into_response()
                     }
                 }
