@@ -19,7 +19,7 @@ axum-core = "0.5"
 http = "1.2.0"
 proc-macro2 = "1.0.93"
 quote = "1.0.38"
-syn = "2.0.98"
+syn = "2.0.100"
 tracing = { version = "0.1.41", optional = true }
 
 [lib]
