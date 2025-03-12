@@ -17,7 +17,7 @@ askama = "0.12.1"
 askama_derive = "0.12.5"
 axum-core = "0.5"
 http = "1.2.0"
-proc-macro2 = "1.0.93"
+proc-macro2 = "1.0.94"
 quote = "1.0.38"
 syn = "2.0.100"
 tracing = { version = "0.1.41", optional = true }
