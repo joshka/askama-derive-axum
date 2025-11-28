@@ -4,7 +4,7 @@ description = "Derive macro for Askama templates with Axum integration. Replacem
 authors = ["Joshka"]
 repository = "https://github.com/joshka/askama-derive-axum/"
 documentation = "https://docs.rs/askama-derive-axum"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
