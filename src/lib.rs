@@ -1,3 +1,8 @@
+//! # Status
+//!
+//! This crate is no longer supported. For a maintained alternative, use
+//! [`askama_web`](https://crates.io/crates/askama_web) for Askama + Axum integration.
+//!
 //! Derive macro for implementing [`IntoResponse`] for Askama templates.
 //!
 //! This crate provides a derive macro for implementing [`IntoResponse`] for Askama templates. This
